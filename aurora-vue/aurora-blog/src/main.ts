@@ -21,6 +21,7 @@ import 'mavon-editor/dist/css/index.css'
 import api from './api/api'
 import axios from 'axios'
 import { useUserStore } from '@/stores/user'
+import defaultCover from '@/assets/default-cover.jpg'
 
 const pinia = createPinia()
 pinia.use(piniaPluginPersistedstate)
@@ -32,8 +33,8 @@ export const app = createApp(App)
   .use(infiniteScroll)
   .use(v3ImgPreview, {})
   .use(lazyPlugin, {
-    loading: require('@/assets/default-cover.jpg'),
-    error: require('@/assets/default-cover.jpg')
+    loading: defaultCover,
+    error: defaultCover
   })
 const userStore = useUserStore()
 axios.interceptors.request.use((config: any) => {
